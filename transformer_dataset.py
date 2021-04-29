@@ -38,4 +38,3 @@ def transform_duluth(X1, X2):
 
 transform_dict = {"default": transform_default,
                   "duluth": transform_duluth}
-transform_values = list(transform_dict.keys())

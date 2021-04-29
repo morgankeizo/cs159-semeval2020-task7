@@ -45,8 +45,8 @@ if __name__ == "__main__":
     parser.add_argument("data", type=str)
     parser.add_argument("--batch_size", type=int, default=100)
     parser.add_argument("--transformer_cache", type=str,
-                        default="transformer-cache")
+                        default="cache/transformer")
     parser.add_argument("--model_name", type=str, default="bert-base-uncased")
-    parser.add_argument("--bert_cache", type=str, default="bert-cache")
+    parser.add_argument("--bert_cache", type=str, default="cache/bert")
     args = parser.parse_args()
     main(args)

@@ -7,7 +7,7 @@ all:
 	@echo "usage: clean deps data"
 
 clean:
-	rm -r venv bert-cache
+	rm -r venv cache
 
 deps: venv
 	source venv/bin/activate && \

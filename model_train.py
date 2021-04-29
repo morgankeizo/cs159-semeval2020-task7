@@ -7,9 +7,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 
-from classifier import MLP
-from transformer_dataset import (TransformerDataset,
-                                 split_dataset, transform_values)
+from model import MLP
+from transformer_dataset import TransformerDataset, split_dataset
 
 
 def make_plot(data, save):
@@ -30,7 +29,8 @@ def main(args):
     dataset_train, dataset_test = split_dataset(dataset, args.alpha)
 
     # train classifier
-    model = MLP(width, args.hidden_dimensions, args.dropout)
+    model_args = (width, args.hidden_dimensions, args.dropout)
+    model = MLP(*model_args)
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, eps=args.eps)
 
@@ -79,11 +79,15 @@ def main(args):
                 "loss_test": epoch_rmse_test}
         make_plot(data, args.plot)
 
+    if args.save:
+        obj = (args.transform, model.state_dict(), model_args)
+        torch.save(obj, args.save)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--transformer_cache", type=str,
-                        default="transformer-cache")
+                        default="cache/transformer")
     parser.add_argument("--transform", type=str, default="default")
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--alpha", type=float, default=0.2)
@@ -92,5 +96,6 @@ if __name__ == "__main__":
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--eps", type=float, default=1e-8)
     parser.add_argument("--plot", type=str)
+    parser.add_argument("--save", type=str)
     args = parser.parse_args()
     main(args)
