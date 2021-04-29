@@ -20,7 +20,7 @@ def main(args):
     if not os.path.exists(args.transformer_cache):
         os.makedirs(args.transformer_cache)
 
-    bert = load_bert(cache_dir=args.bert_cache)
+    bert = load_bert(args.model_name, args.bert_cache)
     transformer = Transformer(*bert)
     df = pd.read_csv(args.data)
     pad = math.ceil(math.log10(len(df)))
@@ -46,6 +46,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=100)
     parser.add_argument("--transformer_cache", type=str,
                         default="transformer-cache")
+    parser.add_argument("--model_name", type=str, default="bert-base-uncased")
     parser.add_argument("--bert_cache", type=str, default="bert-cache")
     args = parser.parse_args()
     main(args)

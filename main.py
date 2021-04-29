@@ -30,7 +30,7 @@ def main(args):
     dataset_train, dataset_test = split_dataset(dataset, args.alpha)
 
     # train classifier
-    model = MLP(width)
+    model = MLP(width, args.hidden_dimensions, args.dropout)
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, eps=args.eps)
 
@@ -41,9 +41,9 @@ def main(args):
 
         # train
         model.train()
-        optimizer.zero_grad()
         square_error_train, size_train = 0, 0
         for X_train, y_train in dataset_train:
+            optimizer.zero_grad()
             y_pred = model(X_train).squeeze()
             loss = criterion(y_pred, y_train)
             loss.backward()
@@ -87,6 +87,8 @@ if __name__ == "__main__":
     parser.add_argument("--transform", type=str, default="default")
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--alpha", type=float, default=0.2)
+    parser.add_argument("--hidden_dimensions", type=int, default=256)
+    parser.add_argument("--dropout", type=float, default=0.5)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--eps", type=float, default=1e-8)
     parser.add_argument("--plot", type=str)

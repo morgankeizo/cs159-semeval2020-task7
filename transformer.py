@@ -3,13 +3,20 @@
 import re
 
 import torch
-from transformers import BertTokenizer, BertModel
+from transformers import (BertTokenizer, BertModel,
+                          RobertaTokenizer, RobertaModel,
+                          XLNetTokenizer, XLNetModel)
+
+bert_dict = {"bert": (BertTokenizer, BertModel),
+             "roberta": (RobertaTokenizer, RobertaModel),
+             "xlnet": (XLNetTokenizer, XLNetModel)}
 
 
-def load_bert(model_name="bert-base-uncased", cache_dir="bert-cache"):
+def load_bert(model_name, cache_dir):
+    Tokenizer, Model = bert_dict[model_name.split("-")[0]]
     return (
-        BertTokenizer.from_pretrained(model_name, cache_dir=cache_dir),
-        BertModel.from_pretrained(model_name, cache_dir=cache_dir))
+        Tokenizer.from_pretrained(model_name, cache_dir=cache_dir),
+        Model.from_pretrained(model_name, cache_dir=cache_dir))
 
 
 def get_mean_grade(df):

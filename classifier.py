@@ -4,7 +4,7 @@ import torch.nn as nn
 
 
 class MLP(nn.Module):
-    def __init__(self, input_dimensions, hidden_dimensions=256, dropout=0.4):
+    def __init__(self, input_dimensions, hidden_dimensions, dropout):
         super().__init__()
         self.classifier = nn.Sequential(
             nn.Linear(input_dimensions, hidden_dimensions),
