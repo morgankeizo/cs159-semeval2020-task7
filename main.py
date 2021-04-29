@@ -4,11 +4,21 @@ import argparse
 import time
 
 import numpy as np
+import matplotlib.pyplot as plt
 import torch
 
 from classifier import MLP
 from transformer_dataset import (TransformerDataset,
                                  split_dataset, transform_values)
+
+
+def make_plot(data, save):
+    plt.xlabel("epoch")
+    plt.ylabel("rmse")
+    plt.plot(data["epoch"], data["loss_train"], label="train")
+    plt.plot(data["epoch"], data["loss_test"], label="test")
+    plt.legend()
+    plt.savefig(save)
 
 
 def main(args):
@@ -24,6 +34,8 @@ def main(args):
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, eps=args.eps)
 
+    epoch_rmse_train = []
+    epoch_rmse_test = []
     for epoch in range(args.epochs):
         time1 = time.time()
 
@@ -53,10 +65,19 @@ def main(args):
 
         rmse_train = np.sqrt(square_error_train / size_train)
         rmse_test = np.sqrt(square_error_test / size_test)
+        epoch_rmse_train.append(rmse_train)
+        epoch_rmse_test.append(rmse_test)
+
         print((f"epoch {epoch} "
                f"loss train {rmse_train:.6f} "
                f"test {rmse_test:.6f} "
                f"time {delta:.3f}"))
+
+    if args.plot:
+        data = {"epoch": list(range(args.epochs)),
+                "loss_train": epoch_rmse_train,
+                "loss_test": epoch_rmse_test}
+        make_plot(data, args.plot)
 
 
 if __name__ == "__main__":
@@ -68,5 +89,6 @@ if __name__ == "__main__":
     parser.add_argument("--alpha", type=float, default=0.2)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--eps", type=float, default=1e-8)
+    parser.add_argument("--plot", type=str)
     args = parser.parse_args()
     main(args)
