@@ -2,6 +2,7 @@
 
 import re
 
+from allennlp.modules.scalar_mix import ScalarMix
 import torch
 from transformers import (BertTokenizer, BertModel,
                           RobertaTokenizer, RobertaModel,
@@ -33,6 +34,9 @@ class Transformer():
     def __init__(self, tokenizer, transformer):
         self.tokenizer = tokenizer
         self.transformer = transformer
+        self.scalar_mix = ScalarMix(
+            transformer.config.num_hidden_layers + 1,
+            do_layer_norm=False)
 
     def __call__(self, df):
         """Converts a dataframe into a matrix"""
@@ -83,14 +87,16 @@ class Transformer():
 
         encoding = self.tokenizer(text, return_tensors="pt", padding=True)
         output = self.transformer(encoding.input_ids,
-                                  attention_mask=encoding.attention_mask)
+                                  attention_mask=encoding.attention_mask,
+                                  output_hidden_states=True)
         mask_finder = encoding.input_ids == self.tokenizer.mask_token_id
+        hidden_state = self.scalar_mix(output.hidden_states)
 
         if pool:
             # Mean pool sequence except mask (edit)
             span_mask = (mask_finder.logical_not() &
                          encoding.attention_mask.bool())
-            return mean_pool(output.last_hidden_state, span_mask)
+            return mean_pool(hidden_state, span_mask)
         else:
             # Grab the mask (context)
-            return output.last_hidden_state[mask_finder]
+            return hidden_state[mask_finder]

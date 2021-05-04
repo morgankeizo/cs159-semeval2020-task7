@@ -11,7 +11,7 @@ clean:
 
 deps: venv
 	source venv/bin/activate && \
-	pip install torch pandas transformers psutil matplotlib
+	pip install torch pandas transformers allennlp psutil matplotlib
 
 venv:
 	python3 -m venv venv
