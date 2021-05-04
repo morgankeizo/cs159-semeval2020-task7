@@ -39,7 +39,7 @@ class Transformer():
 
         text_masked, text_edited = self.get_text(df)
         X_masked = self.text_to_vec(text_masked)
-        X_edited = self.text_to_vec(text_edited)
+        X_edited = self.text_to_vec(text_edited, pool=True)
         return X_masked, X_edited
 
     def get_text(self, df):
@@ -58,7 +58,7 @@ class Transformer():
             text_edited.append(text_edit)
         return text_masked, text_edited
 
-    def text_to_vec(self, text):
+    def text_to_vec(self, text, pool=False):
         """
         Converts a batch of headlines into a feature matrix
 
@@ -84,6 +84,13 @@ class Transformer():
         encoding = self.tokenizer(text, return_tensors="pt", padding=True)
         output = self.transformer(encoding.input_ids,
                                   attention_mask=encoding.attention_mask)
-        mask_mask = encoding.input_ids != self.tokenizer.mask_token_id
-        span_mask = mask_mask & encoding.attention_mask.bool()
-        return mean_pool(output.last_hidden_state, span_mask)
+        mask_finder = encoding.input_ids == self.tokenizer.mask_token_id
+
+        if pool:
+            # Mean pool sequence except mask (edit)
+            span_mask = (mask_finder.logical_not() &
+                         encoding.attention_mask.bool())
+            return mean_pool(output.last_hidden_state, span_mask)
+        else:
+            # Grab the mask (context)
+            return output.last_hidden_state[mask_finder]
