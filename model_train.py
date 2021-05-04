@@ -15,7 +15,8 @@ def make_plot(data, save):
     plt.xlabel("epoch")
     plt.ylabel("rmse")
     plt.plot(data["epoch"], data["loss_train"], label="train")
-    plt.plot(data["epoch"], data["loss_test"], label="test")
+    if data["loss_test"]:
+        plt.plot(data["epoch"], data["loss_test"], label="test")
     plt.legend()
     plt.savefig(save)
 
@@ -26,7 +27,8 @@ def main(args):
     dataset = TransformerDataset(args.transformer_cache,
                                  transform=args.transform)
     width = dataset[0][0].shape[1]
-    dataset_train, dataset_test = split_dataset(dataset, args.alpha)
+    dataset_train, dataset_test = (split_dataset(dataset, args.alpha)
+                                   if args.alpha else (dataset, []))
 
     # train classifier
     model_args = (width, args.hidden_dimensions, args.dropout)
@@ -52,25 +54,27 @@ def main(args):
             size_train += len(y_train)
 
         delta = time.time() - time1
+        rmse_train = np.sqrt(square_error_train / size_train)
+        epoch_rmse_train.append(rmse_train)
 
         # test
-        model.eval()
-        square_error_test, size_test = 0, 0
-        with torch.no_grad():
-            for X_test, y_test in dataset_test:
-                y_pred = model(X_test).squeeze()
-                loss = criterion(y_pred, y_test)
-                square_error_test += loss.item() * len(y_test)
-                size_test += len(y_test)
+        if dataset_test:
+            model.eval()
+            square_error_test, size_test = 0, 0
+            with torch.no_grad():
+                for X_test, y_test in dataset_test:
+                    y_pred = model(X_test).squeeze()
+                    loss = criterion(y_pred, y_test)
+                    square_error_test += loss.item() * len(y_test)
+                    size_test += len(y_test)
 
-        rmse_train = np.sqrt(square_error_train / size_train)
-        rmse_test = np.sqrt(square_error_test / size_test)
-        epoch_rmse_train.append(rmse_train)
-        epoch_rmse_test.append(rmse_test)
+            rmse_test = np.sqrt(square_error_test / size_test)
+            epoch_rmse_test.append(rmse_test)
 
+        rmse_test_str = f"{rmse_test:.6f}" if dataset_test else "--"
         print((f"epoch {epoch} "
                f"loss train {rmse_train:.6f} "
-               f"test {rmse_test:.6f} "
+               f"test {rmse_test_str} "
                f"time {delta:.3f}"))
 
     if args.plot:
