@@ -25,7 +25,8 @@ def main(args):
 
     # load dataset
     dataset = TransformerDataset(args.transformer_cache,
-                                 transform=args.transform)
+                                 args.transform,
+                                 wordnet_cache=args.wordnet_cache)
     width = dataset[0][0].shape[1]
     dataset_train, dataset_test = (split_dataset(dataset, args.alpha)
                                    if args.alpha else (dataset, []))
@@ -92,6 +93,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--transformer_cache", type=str,
                         default="cache/transformer")
+    parser.add_argument("--wordnet_cache", type=str,
+                        default="cache/wordnet")
     parser.add_argument("--transform", type=str, default="default")
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--alpha", type=float, default=0.2)

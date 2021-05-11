@@ -43,3 +43,28 @@ Test a saved model with:
 python model_test.py roberta_duluth_10.pt \
     --transformer_cache cache/transformer-roberta-test
 ```
+
+### Knowledge-based similarity metrics
+
+Similar to the word embeddings previously, we also cache the knowledge-based
+(WordNet-based) similarity metrics with:
+
+```sh
+python wordnet_cache.py data/subtask-1/train.csv --batch_size 100 \
+     --wordnet_cache cache/wordnet-train
+python wordnet_cache.py data/subtask-1/test.csv --batch_size 100 \
+     --wordnet_cache cache/wordnet-test
+```
+
+And can include them in concatenated transforms (such as `duluth+wordnet_lch`,
+which uses Duluth features and the Leacock-Chodorow similarity metric):
+
+```sh
+python model_train.py --transform duluth+wordnet_lch --epochs 10 \
+    --save combined.pt --plot combined.png \
+    --transformer_cache cache/transformer-roberta-train \
+    --wordnet_cache cache/wordnet-train
+python model_test.py combined.pt \
+    --transformer_cache cache/transformer-roberta-test \
+    --wordnet_cache cache/wordnet-test
+```

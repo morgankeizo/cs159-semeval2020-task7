@@ -17,7 +17,9 @@ def main(args):
     model.load_state_dict(state_dict)
 
     # load dataset
-    dataset = TransformerDataset(args.transformer_cache, transform=transform)
+    dataset = TransformerDataset(args.transformer_cache,
+                                 transform,
+                                 wordnet_cache=args.wordnet_cache)
 
     # test model
     criterion = torch.nn.MSELoss()
@@ -40,5 +42,7 @@ if __name__ == "__main__":
     parser.add_argument("model", type=str)
     parser.add_argument("--transformer_cache", type=str,
                         default="cache/transformer")
+    parser.add_argument("--wordnet_cache", type=str,
+                        default="cache/wordnet")
     args = parser.parse_args()
     main(args)

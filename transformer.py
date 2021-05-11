@@ -8,6 +8,8 @@ from transformers import (BertTokenizer, BertModel,
                           RobertaTokenizer, RobertaModel,
                           XLNetTokenizer, XLNetModel)
 
+REGEX_REPLACE = re.compile("<.*/>")
+
 bert_dict = {"bert": (BertTokenizer, BertModel),
              "roberta": (RobertaTokenizer, RobertaModel),
              "xlnet": (XLNetTokenizer, XLNetModel)}
@@ -56,8 +58,8 @@ class Transformer():
         text_masked = []
         text_edited = []
         for text, edit in zip(df["original"], df["edit"]):
-            text_mask = re.sub("<.*/>", self.tokenizer.mask_token, text)
-            text_edit = re.sub("<.*/>", edit, text)
+            text_mask = REGEX_REPLACE.sub(self.tokenizer.mask_token, text)
+            text_edit = REGEX_REPLACE.sub(edit, text)
             text_masked.append(text_mask)
             text_edited.append(text_edit)
         return text_masked, text_edited
