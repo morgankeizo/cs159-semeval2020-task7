@@ -3,24 +3,32 @@
 import re
 
 import nltk
+from nltk.collocations import BigramCollocationFinder
+from nltk.metrics import BigramAssocMeasures
 from nltk.wsd import lesk
 import torch
 
 REGEX_SEARCH = re.compile("<(.*)/>")
 REGEX_REPLACE = re.compile("<.*/>")
 
-similarity_names = ["lch", "wup", "res_brown", "lin_brown", "jcn_brown"]
+similarity_names = ["lch", "wup", "res_brown", "lin_brown", "jcn_brown",
+                    "pmi_brown"]
 
-wn, ics = None, None
+wn, ics, finders = None, None, None
+measures = BigramAssocMeasures()
 
 
 def load_nltk(nltk_cache):
-    global wn, ics
+    global wn, ics, finders
     nltk.download("wordnet", download_dir=nltk_cache)
     nltk.download("wordnet_ic", download_dir=nltk_cache)
+    nltk.download("brown", download_dir=nltk_cache)
     nltk.data.path.append(nltk_cache)
-    from nltk.corpus import wordnet as wn, wordnet_ic as wn_ic
-    ics = {"brown_ic": wn_ic.ic("ic-brown.dat")}
+    from nltk.corpus import (wordnet as wn,
+                             wordnet_ic as wn_ic,
+                             brown)
+    ics = {"brown": wn_ic.ic("ic-brown.dat")}
+    finders = {"brown": BigramCollocationFinder.from_words(brown.words(), 10)}
 
 
 def lesk_match_ok(os, es):
@@ -64,9 +72,11 @@ def get_similarities(original_words, original_sentences,
             similarities = [
                 os.lch_similarity(es),
                 os.wup_similarity(es),
-                os.res_similarity(es, ics["brown_ic"]),
-                os.lin_similarity(es, ics["brown_ic"]),
-                os.jcn_similarity(es, ics["brown_ic"])
+                os.res_similarity(es, ics["brown"]),
+                os.lin_similarity(es, ics["brown"]),
+                os.jcn_similarity(es, ics["brown"]),
+                finders["brown"].score_ngram(measures.pmi,
+                                             original_word, edit_word) or 0
             ]
         except:
             similarities = [0] * len(similarity_names)
@@ -77,7 +87,7 @@ def get_similarities(original_words, original_sentences,
         for sk, sv in zip(similarity_names, similarities):
             s[sk].append(sv)
 
-    return {k: torch.tensor(v) for k, v in s.items()}
+    return {k: torch.tensor(v, dtype=torch.float32) for k, v in s.items()}
 
 
 def get_text(df):
