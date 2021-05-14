@@ -11,13 +11,14 @@ from model import MLP
 from transformer_dataset import TransformerDataset, split_dataset
 
 
-def make_plot(data, save):
+def make_plot(data, save, title):
     plt.xlabel("epoch")
     plt.ylabel("rmse")
     plt.plot(data["epoch"], data["loss_train"], label="train")
     if data["loss_test"]:
         plt.plot(data["epoch"], data["loss_test"], label="test")
     plt.legend()
+    plt.title(title)
     plt.savefig(save)
 
 
@@ -82,7 +83,7 @@ def main(args):
         data = {"epoch": list(range(args.epochs)),
                 "loss_train": epoch_rmse_train,
                 "loss_test": epoch_rmse_test}
-        make_plot(data, args.plot)
+        make_plot(data, args.plot, args.transform)
 
     if args.save:
         obj = (args.transform, model.state_dict(), model_args)

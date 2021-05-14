@@ -1,0 +1,299 @@
+======= wordnet_lch =======
+epoch 0 loss train 0.880019 test 0.589248 time 0.103
+epoch 1 loss train 0.713620 test 0.592206 time 0.099
+epoch 2 loss train 0.654248 test 0.590006 time 0.098
+epoch 3 loss train 0.616944 test 0.589606 time 0.098
+epoch 4 loss train 0.600865 test 0.588040 time 0.098
+epoch 5 loss train 0.595553 test 0.588354 time 0.097
+epoch 6 loss train 0.592100 test 0.588607 time 0.099
+epoch 7 loss train 0.592659 test 0.588192 time 0.098
+epoch 8 loss train 0.591144 test 0.588319 time 0.099
+epoch 9 loss train 0.590775 test 0.588967 time 0.099
+rmse 0.576913743090529
+
+======= wordnet_wup =======
+epoch 0 loss train 0.744692 test 0.592233 time 0.100
+epoch 1 loss train 0.629122 test 0.588508 time 0.097
+epoch 2 loss train 0.600393 test 0.589693 time 0.097
+epoch 3 loss train 0.594548 test 0.587932 time 0.097
+epoch 4 loss train 0.591336 test 0.587852 time 0.099
+epoch 5 loss train 0.591029 test 0.587957 time 0.098
+epoch 6 loss train 0.591495 test 0.589379 time 0.098
+epoch 7 loss train 0.591938 test 0.588470 time 0.098
+epoch 8 loss train 0.591737 test 0.588609 time 0.097
+epoch 9 loss train 0.590702 test 0.588397 time 0.098
+rmse 0.5765562792342449
+
+======= wordnet_res_brown =======
+epoch 0 loss train 0.784341 test 0.594877 time 0.099
+epoch 1 loss train 0.658812 test 0.592963 time 0.098
+epoch 2 loss train 0.613024 test 0.592826 time 0.097
+epoch 3 loss train 0.603669 test 0.588867 time 0.097
+epoch 4 loss train 0.595822 test 0.589996 time 0.098
+epoch 5 loss train 0.594802 test 0.587886 time 0.098
+epoch 6 loss train 0.595758 test 0.591163 time 0.098
+epoch 7 loss train 0.595649 test 0.589940 time 0.098
+epoch 8 loss train 0.595886 test 0.590146 time 0.099
+epoch 9 loss train 0.595162 test 0.593216 time 0.097
+rmse 0.5912587539320584
+
+======= wordnet_lin_brown =======
+epoch 0 loss train 0.764954 test 0.597427 time 0.101
+epoch 1 loss train 0.645704 test 0.600496 time 0.097
+epoch 2 loss train 0.606658 test 0.602330 time 0.098
+epoch 3 loss train 0.594287 test 0.604004 time 0.097
+epoch 4 loss train 0.591755 test 0.607376 time 0.097
+epoch 5 loss train 0.591005 test 0.604843 time 0.098
+epoch 6 loss train 0.592229 test 0.606794 time 0.098
+epoch 7 loss train 0.590427 test 0.607070 time 0.098
+epoch 8 loss train 0.591171 test 0.609655 time 0.097
+epoch 9 loss train 0.591301 test 0.608092 time 0.097
+rmse 0.5920159810601069
+
+======= wordnet_jcn_brown =======
+epoch 0 loss train 0.768898 test 0.580008 time 0.102
+epoch 1 loss train 0.642368 test 0.578675 time 0.099
+epoch 2 loss train 0.605203 test 0.583523 time 0.098
+epoch 3 loss train 0.599133 test 0.580775 time 0.098
+epoch 4 loss train 0.592649 test 0.582403 time 0.099
+epoch 5 loss train 0.591817 test 0.584737 time 0.098
+epoch 6 loss train 0.593426 test 0.582018 time 0.098
+epoch 7 loss train 0.590694 test 0.585105 time 0.099
+epoch 8 loss train 0.591906 test 0.582015 time 0.098
+epoch 9 loss train 0.590624 test 0.586065 time 0.097
+rmse 0.5804749000479033
+
+======= wordnet_pmi_brown =======
+epoch 0 loss train 0.731568 test 0.587973 time 0.100
+epoch 1 loss train 0.632334 test 0.587633 time 0.098
+epoch 2 loss train 0.602155 test 0.587602 time 0.097
+epoch 3 loss train 0.594283 test 0.587658 time 0.098
+epoch 4 loss train 0.594641 test 0.588240 time 0.098
+epoch 5 loss train 0.591709 test 0.587709 time 0.099
+epoch 6 loss train 0.588944 test 0.587713 time 0.097
+epoch 7 loss train 0.591820 test 0.587986 time 0.098
+epoch 8 loss train 0.589594 test 0.588198 time 0.098
+epoch 9 loss train 0.592234 test 0.587865 time 0.098
+rmse 0.5751235179944563
+
+======= wordnet_all =======
+epoch 0 loss train 0.861610 test 0.575737 time 0.104
+epoch 1 loss train 0.697592 test 0.572970 time 0.101
+epoch 2 loss train 0.640925 test 0.571793 time 0.100
+epoch 3 loss train 0.618637 test 0.571125 time 0.101
+epoch 4 loss train 0.602025 test 0.570927 time 0.101
+epoch 5 loss train 0.597067 test 0.570905 time 0.101
+epoch 6 loss train 0.595393 test 0.570764 time 0.101
+epoch 7 loss train 0.595050 test 0.570316 time 0.102
+epoch 8 loss train 0.595871 test 0.571190 time 0.101
+epoch 9 loss train 0.591942 test 0.570533 time 0.100
+rmse 0.5758028359063441
+
+======= default =======
+epoch 0 loss train 0.838291 test 0.548488 time 0.258
+epoch 1 loss train 0.623498 test 0.539101 time 0.256
+epoch 2 loss train 0.574761 test 0.536972 time 0.255
+epoch 3 loss train 0.556400 test 0.535775 time 0.255
+epoch 4 loss train 0.543875 test 0.535114 time 0.255
+epoch 5 loss train 0.542603 test 0.532923 time 0.256
+epoch 6 loss train 0.536270 test 0.533065 time 0.255
+epoch 7 loss train 0.533793 test 0.532197 time 0.255
+epoch 8 loss train 0.531836 test 0.534275 time 0.255
+epoch 9 loss train 0.530003 test 0.534630 time 0.256
+rmse 0.5473344070171073
+
+======= default+wordnet_lch =======
+epoch 0 loss train 0.811982 test 0.561129 time 0.278
+epoch 1 loss train 0.613528 test 0.562802 time 0.278
+epoch 2 loss train 0.570253 test 0.556575 time 0.277
+epoch 3 loss train 0.553316 test 0.553436 time 0.277
+epoch 4 loss train 0.540953 test 0.550602 time 0.276
+epoch 5 loss train 0.539974 test 0.554484 time 0.278
+epoch 6 loss train 0.534459 test 0.546814 time 0.277
+epoch 7 loss train 0.532895 test 0.550868 time 0.277
+epoch 8 loss train 0.527787 test 0.551847 time 0.277
+epoch 9 loss train 0.526486 test 0.553386 time 0.277
+rmse 0.5533641783862209
+
+======= default+wordnet_wup =======
+epoch 0 loss train 0.708260 test 0.572409 time 0.280
+epoch 1 loss train 0.579517 test 0.551202 time 0.277
+epoch 2 loss train 0.556657 test 0.556946 time 0.276
+epoch 3 loss train 0.546772 test 0.545448 time 0.275
+epoch 4 loss train 0.543548 test 0.541191 time 0.278
+epoch 5 loss train 0.537505 test 0.542506 time 0.276
+epoch 6 loss train 0.532982 test 0.540958 time 0.276
+epoch 7 loss train 0.532154 test 0.539620 time 0.275
+epoch 8 loss train 0.529479 test 0.539017 time 0.276
+epoch 9 loss train 0.528992 test 0.539370 time 0.277
+rmse 0.5454501083256195
+
+======= default+wordnet_res_brown =======
+epoch 0 loss train 0.831353 test 0.544650 time 0.281
+epoch 1 loss train 0.620271 test 0.536185 time 0.278
+epoch 2 loss train 0.583802 test 0.535257 time 0.277
+epoch 3 loss train 0.555885 test 0.532219 time 0.278
+epoch 4 loss train 0.547733 test 0.531980 time 0.278
+epoch 5 loss train 0.542472 test 0.529678 time 0.278
+epoch 6 loss train 0.539481 test 0.530925 time 0.277
+epoch 7 loss train 0.538091 test 0.531460 time 0.278
+epoch 8 loss train 0.536510 test 0.531382 time 0.277
+epoch 9 loss train 0.534749 test 0.533211 time 0.278
+rmse 0.5471042429922078
+
+======= default+wordnet_lin_brown =======
+epoch 0 loss train 0.897788 test 0.564884 time 0.280
+epoch 1 loss train 0.635524 test 0.552169 time 0.278
+epoch 2 loss train 0.577724 test 0.552934 time 0.277
+epoch 3 loss train 0.557291 test 0.547687 time 0.277
+epoch 4 loss train 0.548006 test 0.551438 time 0.277
+epoch 5 loss train 0.541283 test 0.547266 time 0.275
+epoch 6 loss train 0.537859 test 0.553629 time 0.278
+epoch 7 loss train 0.534161 test 0.547557 time 0.279
+epoch 8 loss train 0.532092 test 0.548778 time 0.278
+epoch 9 loss train 0.529003 test 0.546995 time 0.279
+rmse 0.5466577755355605
+
+======= default+wordnet_jcn_brown =======
+epoch 0 loss train 0.818512 test 0.552384 time 0.279
+epoch 1 loss train 0.616002 test 0.550089 time 0.277
+epoch 2 loss train 0.576239 test 0.540639 time 0.276
+epoch 3 loss train 0.557388 test 0.540172 time 0.276
+epoch 4 loss train 0.547842 test 0.541208 time 0.275
+epoch 5 loss train 0.541808 test 0.539447 time 0.276
+epoch 6 loss train 0.543329 test 0.538015 time 0.276
+epoch 7 loss train 0.536175 test 0.539095 time 0.276
+epoch 8 loss train 0.534657 test 0.538360 time 0.275
+epoch 9 loss train 0.532763 test 0.538197 time 0.277
+rmse 0.5471353468567771
+
+======= default+wordnet_pmi_brown =======
+epoch 0 loss train 0.820185 test 0.558711 time 0.280
+epoch 1 loss train 0.614679 test 0.564790 time 0.277
+epoch 2 loss train 0.572231 test 0.586750 time 0.277
+epoch 3 loss train 0.556018 test 0.594004 time 0.276
+epoch 4 loss train 0.549876 test 0.581523 time 0.274
+epoch 5 loss train 0.545656 test 0.585670 time 0.274
+epoch 6 loss train 0.546272 test 0.575122 time 0.275
+epoch 7 loss train 0.537139 test 0.566347 time 0.276
+epoch 8 loss train 0.536037 test 0.559388 time 0.276
+epoch 9 loss train 0.533968 test 0.567390 time 0.277
+rmse 0.555432601598555
+
+======= default+wordnet_all =======
+epoch 0 loss train 0.851333 test 0.528835 time 0.282
+epoch 1 loss train 0.625183 test 0.519357 time 0.278
+epoch 2 loss train 0.576764 test 0.522058 time 0.278
+epoch 3 loss train 0.555773 test 0.521364 time 0.280
+epoch 4 loss train 0.551090 test 0.526564 time 0.280
+epoch 5 loss train 0.543691 test 0.533590 time 0.279
+epoch 6 loss train 0.539920 test 0.523526 time 0.279
+epoch 7 loss train 0.537392 test 0.524785 time 0.279
+epoch 8 loss train 0.535892 test 0.523828 time 0.280
+epoch 9 loss train 0.533565 test 0.519910 time 0.277
+rmse 0.5534700249924828
+
+======= duluth =======
+epoch 0 loss train 0.756699 test 0.579000 time 0.492
+epoch 1 loss train 0.657613 test 0.570172 time 0.489
+epoch 2 loss train 0.599423 test 0.561808 time 0.487
+epoch 3 loss train 0.577167 test 0.559170 time 0.487
+epoch 4 loss train 0.565452 test 0.554647 time 0.491
+epoch 5 loss train 0.555664 test 0.553317 time 0.491
+epoch 6 loss train 0.550884 test 0.554425 time 0.492
+epoch 7 loss train 0.547621 test 0.547174 time 0.493
+epoch 8 loss train 0.542930 test 0.550866 time 0.492
+epoch 9 loss train 0.543557 test 0.546584 time 0.487
+rmse 0.5419693924270529
+
+======= duluth+wordnet_lch =======
+epoch 0 loss train 0.806844 test 0.575551 time 0.508
+epoch 1 loss train 0.683628 test 0.569782 time 0.507
+epoch 2 loss train 0.622432 test 0.554132 time 0.501
+epoch 3 loss train 0.585678 test 0.554752 time 0.504
+epoch 4 loss train 0.574295 test 0.546189 time 0.508
+epoch 5 loss train 0.564157 test 0.543806 time 0.501
+epoch 6 loss train 0.557109 test 0.549749 time 0.502
+epoch 7 loss train 0.555298 test 0.552840 time 0.501
+epoch 8 loss train 0.555352 test 0.544672 time 0.505
+epoch 9 loss train 0.547361 test 0.547477 time 0.506
+rmse 0.5497467527234465
+
+======= duluth+wordnet_wup =======
+epoch 0 loss train 0.776770 test 0.588149 time 0.507
+epoch 1 loss train 0.653465 test 0.570345 time 0.507
+epoch 2 loss train 0.601835 test 0.566107 time 0.508
+epoch 3 loss train 0.569404 test 0.559849 time 0.509
+epoch 4 loss train 0.556890 test 0.558505 time 0.503
+epoch 5 loss train 0.553127 test 0.557549 time 0.504
+epoch 6 loss train 0.546614 test 0.564555 time 0.505
+epoch 7 loss train 0.541881 test 0.557186 time 0.504
+epoch 8 loss train 0.544563 test 0.568471 time 0.508
+epoch 9 loss train 0.533671 test 0.560431 time 0.501
+rmse 0.5474503709493554
+
+======= duluth+wordnet_res_brown =======
+epoch 0 loss train 0.774051 test 0.589829 time 0.510
+epoch 1 loss train 0.644984 test 0.566823 time 0.508
+epoch 2 loss train 0.586906 test 0.564011 time 0.513
+epoch 3 loss train 0.560379 test 0.558385 time 0.506
+epoch 4 loss train 0.552910 test 0.555432 time 0.508
+epoch 5 loss train 0.547570 test 0.561450 time 0.507
+epoch 6 loss train 0.537823 test 0.558032 time 0.504
+epoch 7 loss train 0.541091 test 0.560378 time 0.504
+epoch 8 loss train 0.533574 test 0.556534 time 0.506
+epoch 9 loss train 0.530215 test 0.557740 time 0.508
+rmse 0.5428832603670639
+
+======= duluth+wordnet_lin_brown =======
+epoch 0 loss train 0.823502 test 0.574429 time 0.507
+epoch 1 loss train 0.702871 test 0.568896 time 0.501
+epoch 2 loss train 0.637256 test 0.560559 time 0.502
+epoch 3 loss train 0.599002 test 0.553126 time 0.506
+epoch 4 loss train 0.571711 test 0.551709 time 0.501
+epoch 5 loss train 0.564358 test 0.565734 time 0.503
+epoch 6 loss train 0.554485 test 0.553554 time 0.505
+epoch 7 loss train 0.551496 test 0.547143 time 0.504
+epoch 8 loss train 0.546318 test 0.544922 time 0.505
+epoch 9 loss train 0.540753 test 0.543364 time 0.506
+rmse 0.5417106940242727
+
+======= duluth+wordnet_jcn_brown =======
+epoch 0 loss train 0.770953 test 0.570629 time 0.506
+epoch 1 loss train 0.648254 test 0.562939 time 0.507
+epoch 2 loss train 0.597058 test 0.560824 time 0.509
+epoch 3 loss train 0.569786 test 0.553042 time 0.503
+epoch 4 loss train 0.558291 test 0.549600 time 0.505
+epoch 5 loss train 0.553796 test 0.550329 time 0.505
+epoch 6 loss train 0.545240 test 0.547072 time 0.506
+epoch 7 loss train 0.542400 test 0.544292 time 0.502
+epoch 8 loss train 0.540904 test 0.542479 time 0.504
+epoch 9 loss train 0.541944 test 0.541438 time 0.504
+rmse 0.5401689060224203
+
+======= duluth+wordnet_pmi_brown =======
+epoch 0 loss train 0.775547 test 0.582417 time 0.505
+epoch 1 loss train 0.649506 test 0.567445 time 0.501
+epoch 2 loss train 0.589948 test 0.557630 time 0.501
+epoch 3 loss train 0.572368 test 0.555923 time 0.501
+epoch 4 loss train 0.562982 test 0.553227 time 0.507
+epoch 5 loss train 0.555223 test 0.543163 time 0.503
+epoch 6 loss train 0.547749 test 0.542638 time 0.505
+epoch 7 loss train 0.545743 test 0.544579 time 0.505
+epoch 8 loss train 0.537694 test 0.544867 time 0.506
+epoch 9 loss train 0.537729 test 0.544478 time 0.508
+rmse 0.547217962719463
+
+======= duluth+wordnet_all =======
+epoch 0 loss train 0.872051 test 0.574594 time 0.506
+epoch 1 loss train 0.719412 test 0.566452 time 0.499
+epoch 2 loss train 0.650309 test 0.560201 time 0.500
+epoch 3 loss train 0.607734 test 0.566530 time 0.499
+epoch 4 loss train 0.580550 test 0.556148 time 0.499
+epoch 5 loss train 0.568192 test 0.552718 time 0.499
+epoch 6 loss train 0.554987 test 0.559326 time 0.497
+epoch 7 loss train 0.553099 test 0.547577 time 0.498
+epoch 8 loss train 0.548197 test 0.550640 time 0.499
+epoch 9 loss train 0.545144 test 0.545637 time 0.498
+rmse 0.5439843269278503
+
