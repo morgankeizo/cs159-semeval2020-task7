@@ -1,5 +1,23 @@
 # cs159-semeval2020-task7
 
+## Introduction
+
+This final project for CS159 Natural Language Processing at Harvey Mudd College
+is a solution to [SemEval 2020 Task 7](https://arxiv.org/abs/2008.00304), which
+rates the funniness (from 0-3) of edits to news headlines, such as:
+
+> Mitch McConnell thinks tax reform will take longer than Trump ~~claimed~~
+**haircut**
+
+This implementation is based on the
+[Duluth](https://www.aclweb.org/anthology/2020.semeval-1.128/) team's solution,
+which uses the RoBERTa embeddings of the original headlines, the edited
+headlines,  as well as vector differences to represent the difference between
+original and edited headlines. This project expands on the Duluth implementation
+by using various word similarity metrics based on the hypothesis that when the
+edited word is dissimilar from the original word in the headline, the edit is
+funnier.
+
 ## Setup
 
 Download the dataset, install Python dependencies, and activate the
